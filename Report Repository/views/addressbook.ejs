@@ -1,0 +1,33 @@
+<%- include('./includes/header.ejs') %>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<body>
+   <%- include('./includes/nav.ejs') %>
+   <main>
+      <% if (bookusers.length > 0) { var i=0;%>
+      <div class="grid">
+         <% for (let user of bookusers) { i=i+1;%>
+
+         <h3><%= i %></h3>
+         <h3 class="">
+            <%= user.name %>
+         </h3>
+         <h3 class="">
+            <%= user.email %>
+         </h3>
+         <h3><%= user.address1%></h3>
+
+         <h2 class="">$ <%= user.phonenumber %></h2>
+
+         <form action="/delete" method="POST">
+            <input type="hidden" value="<%=user._id%>" name="userbookId" />
+            <button type="submit">Delete</button><br />
+         </form>
+         <% } %>
+      </div>
+      <% } else { %>
+      <h1>No Users Found!</h1>
+      <% } %>
+   </main>
+</body>

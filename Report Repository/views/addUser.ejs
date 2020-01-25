@@ -1,0 +1,88 @@
+<html>
+   <link rel="stylesheet" href="/css/addUser.css" />
+   <body>
+      <ul>
+         <li><a class="active">NEW USER</a></li>
+      </ul>
+      <div class="container" id="grad">
+         <form action="/addUser" method="POST" name="details">
+            <div class="form-group">
+               <label for="uname"
+                  ><b
+                     ><span style="margin-left: 18px; font-size: 17px;"
+                        >Email:</span
+                     ></b
+                  ></label
+               >
+               <input
+                  type="email"
+                  placeholder="Enter Email"
+                  name="email"
+                  required
+               />
+               <br />
+            </div>
+
+            <div class="form-group">
+               <label for="frstname"
+                  ><b
+                     ><span style="margin-left: 77px; font-size: 15px;"
+                        >First Name<span style="color: #e60000;">*</span>:</span
+                     ></b
+                  ></label
+               >
+               <input
+                  type="text"
+                  class="frstname"
+                  placeholder="Name"
+                  name="name"
+                  id="fname"
+                  required
+               />
+               <br />
+            </div>
+
+            <div class="form-group">
+               <label for="phone"
+                  ><b
+                     ><span style="margin-left: 124px; font-size: 15px;"
+                        >Phone Number<span style="color: #e60000;">*</span
+                        >:</span
+                     ></b
+                  ></label
+               >
+               <input
+                  type="number"
+                  class="Age"
+                  name="phone"
+                  id="age"
+                  value=""
+                  placeholder="phone Number"
+                  required
+               />
+            </div>
+
+            <div class="form-group">
+               <label for="addrs"
+                  ><b
+                     ><span style="margin-left: 92px; font-size: 15px;"
+                        >Address<span style="color: #e60000;">*</span>:</span
+                     ></b
+                  ></label
+               >
+               <input
+                  type="text"
+                  class="addrs"
+                  name="addrs"
+                  id="adress"
+                  value=""
+                  placeholder="Address"
+               />
+            </div>
+            <button type="submit" class="bttn">
+               <span style="font-size: 17px;">Submit</span>
+            </button>
+         </form>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,96 @@
+ul {
+   list-style-type: none;
+   height: 80px;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: #4caf50;
+}
+
+li {
+   float: center;
+   border-right: 1px solid #bbb;
+}
+
+li a {
+   display: block;
+   color: white;
+   font-size: 33px;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+
+li a:hover:not(.active) {
+   background-color: #111;
+}
+
+.active {
+   background-color: #4caf50;
+}
+
+form {
+   border: 3px solid #f1f1f1;
+   border-radius: 10px;
+}
+
+#grad {
+   width: 600px;
+}
+
+.frstname {
+   margin-top: 10px;
+   margin-left: 5px;
+   display: inline-block;
+   border: 2px solid #ccc;
+   border-radius: 5px;
+   box-sizing: border-box;
+}
+
+.frstname:focus,
+.lstname:focus,
+.Age:focus,
+.Date:focus,
+.Contact:focus,
+.blood:focus,
+.country:focus,
+.state:focus,
+.pin:focus,
+.addrs:focus {
+   background-color: #e0e0d1;
+   outline: none;
+}
+
+.lstname,
+.Age,
+.Date,
+.Contact,
+.blood,
+.country,
+.state,
+.pin,
+.addrs {
+   margin-left: 5px;
+   display: inline-block;
+   border: 2px solid #ccc;
+   border-radius: 5px;
+   box-sizing: border-box;
+}
+
+.bttn {
+   background-color: #00a950;
+   color: white;
+   padding: 14px 20px;
+   margin-top: 5px;
+   margin-left: 172px;
+   margin-bottom: 20px;
+   border: none;
+   border-radius: 25px;
+   cursor: pointer;
+   opacity: 0.8;
+   width: 150px;
+}
+
+.bttn:hover {
+   opacity: 1;
+}
