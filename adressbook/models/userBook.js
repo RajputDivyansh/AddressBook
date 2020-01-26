@@ -11,6 +11,18 @@ const bookSchema = new Schema({
       type: String,
       required: true
    },
+   instagramId: {
+      type: String
+      // required: true
+   },
+   linkedIn: {
+      type: String
+      // required: true
+   },
+   facebook: {
+      type: String
+      // required: true
+   },
    phonenumber: {
       type: String,
       required: true

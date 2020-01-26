@@ -18,7 +18,13 @@
          </h3>
          <h3><%= user.address1%></h3>
 
-         <h2 class="">$ <%= user.phonenumber %></h2>
+         <h2 class=""><%= user.phonenumber %></h2>
+
+         <h2 class=""><%= user.linkedIn %></h2>
+
+         <h2 class=""><%= user.instagramId %></h2>
+
+         <h2 class=""><%= user.facebook %></h2>
 
          <button type="submit">
             <a href="/editUser/<%=user._id%>?edit=true">Edit</a>

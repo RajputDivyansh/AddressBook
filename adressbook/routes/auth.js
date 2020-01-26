@@ -33,11 +33,17 @@ router.post("/addUser", authentication.isAuth, (req, res, next) => {
    const name = req.body.name;
    const phone = req.body.phone;
    const adress = req.body.addrs;
+   const insta = req.body.instagram;
+   const linkedIn = req.body.linkedIn;
+   const fb = req.body.fb;
    //    const adress2 = req.body.adress2;
    const bookstore = new Bookstore({
       name: name,
       email: email,
       phonenumber: phone,
+      instagramId: insta,
+      linkedIn: linkedIn,
+      facebook: fb,
       address1: adress,
       userId: req.user._id
       //   address2: adress2
