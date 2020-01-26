@@ -6,8 +6,13 @@
          <li class="main-header__item">
             <a href="/addUser">AddUser</a>
          </li>
-         <li style="color: white; float: right; margin-left: 1700px;">
-            <%= bookusers[0].userId.name %>
+         <li style="color: white; float: right; margin-left: 1625px;">
+            <%= userId %>
+         </li>
+         <li class="main-header__item">
+            <form action="/logout" method="post">
+               <button type="submit">Logout</button>
+            </form>
          </li>
       </ul>
    </nav>

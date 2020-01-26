@@ -12,7 +12,8 @@ exports.getUser = (req, res, next) => {
             // console.log(user[0].userId.name);
             res.render("addressbook.ejs", {
                bookusers: user,
-               path: "/getUser"
+               path: "/getUser",
+               userId: req.user.name
             });
          })
          .catch(err => {

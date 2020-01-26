@@ -2,10 +2,18 @@
    <link rel="stylesheet" href="/css/addUser.css" />
    <body>
       <ul>
-         <li><a class="active">NEW USER</a></li>
+         <li>
+            <a class="active"
+               ><% if(editing){ %> EditUser <% } else { %> NewUser <% }%></a
+            >
+         </li>
       </ul>
       <div class="container" id="grad">
-         <form action="/addUser" method="POST" name="details">
+         <form
+            action="/<% if (editing) { %>editUser<% } else { %>addUser<% } %> "
+            method="POST"
+            name="details"
+         >
             <div class="form-group">
                <label for="uname"
                   ><b
@@ -18,6 +26,7 @@
                   type="email"
                   placeholder="Enter Email"
                   name="email"
+                  value="<% if (editing) { %><%= user.email %><% } %>"
                   required
                />
                <br />
@@ -27,7 +36,7 @@
                <label for="frstname"
                   ><b
                      ><span style="margin-left: 77px; font-size: 15px;"
-                        >First Name<span style="color: #e60000;">*</span>:</span
+                        >Name<span style="color: #e60000;">*</span>:</span
                      ></b
                   ></label
                >
@@ -37,6 +46,7 @@
                   placeholder="Name"
                   name="name"
                   id="fname"
+                  value="<% if (editing) { %><%= user.name %><% } %>"
                   required
                />
                <br />
@@ -56,7 +66,7 @@
                   class="Age"
                   name="phone"
                   id="age"
-                  value=""
+                  value="<% if (editing) { %><%= user.phonenumber %><% } %>"
                   placeholder="phone Number"
                   required
                />
@@ -75,10 +85,13 @@
                   class="addrs"
                   name="addrs"
                   id="adress"
-                  value=""
+                  value="<% if (editing) { %><%= user.address1 %><% } %>"
                   placeholder="Address"
                />
             </div>
+            <% if(editing) {%>
+            <input type="hidden" value="<%= user._id %>" name="userId" />
+            <% } %>
             <button type="submit" class="bttn">
                <span style="font-size: 17px;">Submit</span>
             </button>

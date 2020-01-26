@@ -20,6 +20,11 @@
 
          <h2 class="">$ <%= user.phonenumber %></h2>
 
+         <button type="submit">
+            <a href="/editUser/<%=user._id%>?edit=true">Edit</a>
+         </button>
+         <br />
+
          <form action="/delete" method="POST">
             <input type="hidden" value="<%=user._id%>" name="userbookId" />
             <button type="submit">Delete</button><br />
