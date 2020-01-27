@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/css/main.css" />
 
 <body>
-   <%- include('./includes/nav.ejs') %>
+   <%- include('./includes/nav.ejs' ,{ name:userId }) %>
    <main>
       <% if (bookusers.length > 0) { var i=0;%>
       <div class="grid">

@@ -2,10 +2,12 @@ const addUser = require("../models/userBook");
 
 exports.getUser = (req, res, next) => {
    //    console.log(req.user._id);
+   let mySort = { name: 1 };
    return (
       addUser
          .find({ userId: req.user._id })
          .populate("userId")
+         .sort(mySort)
          //   .select("email phone -_id")
          //   .populate("userId", "name")
          .then(user => {
