@@ -1,44 +1,60 @@
 <%- include('./includes/header.ejs') %>
-
 <link rel="stylesheet" href="/css/main.css" />
 
 <body>
-   <%- include('./includes/nav.ejs' ,{ name:userId }) %>
-   <main>
-      <% if (bookusers.length > 0) { var i=0;%>
-      <div class="grid">
-         <% for (let user of bookusers) { i=i+1;%>
-
-         <h3><%= i %></h3>
-         <h3 class="">
-            <%= user.name %>
-         </h3>
-         <h3 class="">
-            <%= user.email %>
-         </h3>
-         <h3><%= user.address1%></h3>
-
-         <h2 class=""><%= user.phonenumber %></h2>
-
-         <h2 class=""><%= user.linkedIn %></h2>
-
-         <h2 class=""><%= user.instagramId %></h2>
-
-         <h2 class=""><%= user.facebook %></h2>
-
-         <button type="submit">
-            <a href="/editUser/<%=user._id%>?edit=true">Edit</a>
-         </button>
-         <br />
-
-         <form action="/delete" method="POST">
-            <input type="hidden" value="<%=user._id%>" name="userbookId" />
-            <button type="submit">Delete</button><br />
-         </form>
-         <% } %>
+   <%- include('./includes/nav.ejs') %> <% if (bookusers.length > 0) { var
+   i=0;%> <% for (let user of bookusers) { %>
+   <!-- <div class="container-fluid">
+        <br> <div class="row"> -->
+   <div class="card">
+      <img
+         src="/images/avatar.png"
+         alt="Avatar"
+         style="height: 200px; width:100%"
+      />
+      <!-- <div class="container">           -->
+      <!-- <div class="col-sm-3"> -->
+      <div class="lineSpace">
+         <span class="marg"
+            ><b>Name:&nbsp;&nbsp;</b><%= user.name %><br
+         /></span>
+         <span class="marg"
+            ><b>Email:&nbsp;&nbsp;</b><%= user.email %><br
+         /></span>
+         <span class="marg">
+            <b>Address:&nbsp;&nbsp;</b><%= user.address1%><br
+         /></span>
+         <span class="marg"
+            ><b>Phone Number:&nbsp;&nbsp;</b><%= user.phonenumber %></span
+         ><br />
+         <!-- </div> -->
+         <!-- <div class="col-sm-6"> -->
+         <h5 style="align-content: center;">Social Media</h5>
+         <span class="marg"
+            ><b>LinkedIn:&nbsp;&nbsp;</b><%= user.linkedIn %><br
+         /></span>
+         <span class="marg"
+            ><b>Instagram:&nbsp;&nbsp;</b><%= user.instagramId %><br
+         /></span>
+         <span class="marg"
+            ><b>Facebook:&nbsp;&nbsp;</b><%= user.facebook %></span
+         >
+         <!-- <div > -->
       </div>
-      <% } else { %>
-      <h1>No Users Found!</h1>
-      <% } %>
-   </main>
+      <a href="/editUser/<%=user._id%>?edit=true"
+         ><button type="submit" class="btn btn-light">Edit</button></a
+      >
+      <form action="/delete" method="POST">
+         <input type="hidden" value="<%=user._id%>" name="userbookId" />
+         <button type="submit" class="btn btn-dark">Delete</button><br />
+      </form>
+      <!-- </div> -->
+   </div>
+   <!-- </div> -->
+   <!-- <div class='col-sm-6'></div> -->
+   <!-- </div> -->
+
+   <% }%> <% } else { %>
+   <h1>No Users Found!</h1>
+   <% } %>
 </body>

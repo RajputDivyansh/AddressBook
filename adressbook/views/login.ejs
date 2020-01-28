@@ -3,12 +3,11 @@
 <link rel="stylesheet" href="/css/login.css" />
 
    </head>
-   <body>
-      <div id="back_img">
+   <body style=" background-image: url('/images/wall.jpg'); background-repeat: no-repeat;">
+      <div >
          <div class="header">
-            <img src="Images/logo1.jfif" height="70px" width="70px" />
-            <p style="font-size:60px; font-family: 'freestyle script'">
-               Report Repository
+            <p style="font-size:60px; color: red; margin-top: 100px; font-family: 'freestyle script'">
+               Address Book
             </p>
          </div>
 
@@ -17,15 +16,16 @@
                <div class="heading">
                   <p>
                      <span
-                        style="font-size: 20px; font-family: romantic; margin-left: 70px;">
+                        style="font-size: 20px; color: red;font-family: romantic; margin-left: 70px;">
                         Sign Into Your Account</span>
                   </p>
                </div>
 
                <form action="/login" method="post">
-                  <div class="imgcontainer">
+                  <!-- <div class="imgcontainer">
                      <img src="Images/avatar.png" alt="Avatar" class="avatar" />
-                  </div>
+                  </div> -->
+                  <br>
 
                   <div class="form-group">
                      <label for="uname">
@@ -127,7 +127,7 @@
 
                         <div class="input-container">
                               <i class="fa fa-user icon"></i>
-                              <label for="phone">
+                              <label for="email">
                                  <span>
                                     <b>Phone</b>
                                  </span>
@@ -137,7 +137,7 @@
                            <input class="e1" type="number" name="phone"  placeholder="Enter Phone Number" required />
                            <br />
 
-                        <div class="input-container">
+                           <div class="input-container">
                            <i class="fa fa-key icon"></i>
                            <label for="psw">
                               <span>
@@ -154,23 +154,6 @@
                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                            required />
-                        <br />
-
-                        <div class="input-container">
-                           <i class="fa fa-key icon"></i>
-                           <label for="psw-repeat"><
-                              <span>
-                                 <b>Repeat Password</b>
-                              </span>
-                           </label>
-                        </div>
-                        <br />
-                        <input
-                           class="p1"
-                           type="password"
-                           placeholder="Repeat Password"
-                           name="psw-repeat"
-                           required/>
                         <br />
 
                         <label>

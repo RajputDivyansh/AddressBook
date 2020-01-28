@@ -1,14 +1,25 @@
 <html>
+   <%- include('./includes/header.ejs') %>
    <link rel="stylesheet" href="/css/addUser.css" />
    <body>
-      <ul>
-         <li>
-            <a class="active"
-               ><% if(editing){ %> EditUser <% } else { %> NewUser <% }%></a
-            >
-         </li>
-      </ul>
+      <div class="cotainer-fluid">
+      <div class="row">
+
+      <div class="col-sm-12">
+         <div class="mw-100" style="background-color: limegreen;">
+         <h2 class='text-center'>
+            <a class="active">
+               <% if(editing){ %> EditUser <% } else { %> NewUser <% }%>
+            </a>
+         </h2>
+         </div>
+      </div>
+   </div>
+</div>
       <div class="container" id="grad">
+         <div class="row">
+            <div class="col-sm-2"></div>
+         <div class="col-sm-8">
          <form
             action="/<% if (editing) { %>editUser<% } else { %>addUser<% } %> "
             method="POST"
@@ -17,30 +28,27 @@
             <div class="form-group">
                <label for="uname"
                   ><b
-                     ><span style="margin-left: 18px; font-size: 17px;"
-                        >Email:</span
-                     ></b
+                     >Email</b
                   ></label
                >
-               <input
+               <input class="form-control"
+                  class="form-control"
                   type="email"
                   placeholder="Enter Email"
                   name="email"
                   value="<% if (editing) { %><%= user.email %><% } %>"
                   required
                />
-               <br />
+              
             </div>
 
             <div class="form-group">
                <label for="frstname"
                   ><b
-                     ><span style="margin-left: 77px; font-size: 15px;"
-                        >Name<span style="color: #e60000;">*</span>:</span
-                     ></b
+                     >Name</b
                   ></label
                >
-               <input
+               <input class="form-control"
                   type="text"
                   class="frstname"
                   placeholder="Name"
@@ -49,79 +57,68 @@
                   value="<% if (editing) { %><%= user.name %><% } %>"
                   required
                />
-               <br />
+               
             </div>
 
             <div class="form-group">
                <label for="frstname"
                   ><b
-                     ><span style="margin-left: 77px; font-size: 15px;"
-                        >Instagram Id<span style="color: #e60000;">*</span
-                        >:</span
-                     ></b
+                     >Instagram Id</b
                   ></label
                >
-               <input
+               <input class="form-control"
                   type="text"
                   class="frstname"
                   placeholder="Instagram Id"
                   name="instagram"
                   id="fname"
                   value="<% if (editing) { %><%= user.instagramId %><% } %>"
-                  required
+                  
                />
-               <br />
+               
             </div>
             <div class="form-group">
                <label for="frstname"
                   ><b
-                     ><span style="margin-left: 77px; font-size: 15px;"
-                        >LinkedIn<span style="color: #e60000;">*</span>:</span
-                     ></b
+                     >LinkedIn</b
                   ></label
                >
-               <input
+               <input class="form-control"
                   type="text"
                   class="frstname"
                   placeholder="LinkedIn"
                   name="linkedIn"
                   id="fname"
                   value="<% if (editing) { %><%= user.linkedIn %><% } %>"
-                  required
+                  
                />
-               <br />
+               
             </div>
             <div class="form-group">
                <label for="frstname"
                   ><b
-                     ><span style="margin-left: 77px; font-size: 15px;"
-                        >Facebok Profile<span style="color: #e60000;">*</span
-                        >:</span
-                     ></b
+                     >Facebook Profile</b
                   ></label
                >
-               <input
+               <input class="form-control"
                   type="text"
                   class="frstname"
                   placeholder="Facebook Profile"
                   name="fb"
                   id="fname"
                   value="<% if (editing) { %><%= user.facebook %><% } %>"
-                  required
+                  
                />
-               <br />
+               
             </div>
 
             <div class="form-group">
                <label for="phone"
                   ><b
-                     ><span style="margin-left: 124px; font-size: 15px;"
-                        >Phone Number<span style="color: #e60000;">*</span
-                        >:</span
-                     ></b
+                     >Phone Number</b
                   ></label
                >
-               <input
+               <input class="form-control"
                   type="number"
                   class="Age"
                   name="phone"
@@ -135,12 +132,10 @@
             <div class="form-group">
                <label for="addrs"
                   ><b
-                     ><span style="margin-left: 92px; font-size: 15px;"
-                        >Address<span style="color: #e60000;">*</span>:</span
-                     ></b
+                     >Address</b
                   ></label
                >
-               <input
+               <input class="form-control"
                   type="text"
                   class="addrs"
                   name="addrs"
@@ -150,12 +145,15 @@
                />
             </div>
             <% if(editing) {%>
-            <input type="hidden" value="<%= user._id %>" name="userId" />
+            <input class="form-control" type="hidden" value="<%= user._id %>" name="userId" />
             <% } %>
-            <button type="submit" class="bttn">
-               <span style="font-size: 17px;">Submit</span>
+            <button type="submit" class="btn btn-success">
+              Submit
             </button>
          </form>
+      </div>
+      <div class="col-sm-2"></div>
+      </div>
       </div>
    </body>
 </html>
