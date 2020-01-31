@@ -1,5 +1,5 @@
 {
-   "name": "reportsrepository",
+   "name": "addressbook",
    "version": "1.0.0",
    "description": "it is used to store medical reports",
    "main": "app.js",
