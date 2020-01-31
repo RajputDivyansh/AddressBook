@@ -3,157 +3,145 @@
    <link rel="stylesheet" href="/css/addUser.css" />
    <body>
       <div class="cotainer-fluid">
-      <div class="row">
-
-      <div class="col-sm-12">
-         <div class="mw-100" style="background-color: limegreen;">
-         <h2 class='text-center'>
-            <a class="active">
-               <% if(editing){ %> EditUser <% } else { %> NewUser <% }%>
-            </a>
-         </h2>
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="mw-100" style="background-color: limegreen;">
+                  <h2 class="text-center">
+                     <a class="active">
+                        <% if(editing){ %> EditUser <% } else { %> NewUser <%
+                        }%>
+                     </a>
+                  </h2>
+               </div>
+            </div>
          </div>
       </div>
-   </div>
-</div>
       <div class="container" id="grad">
          <div class="row">
             <div class="col-sm-2"></div>
-         <div class="col-sm-8">
-         <form
-            action="/<% if (editing) { %>editUser<% } else { %>addUser<% } %> "
-            method="POST"
-            name="details"
-         >
-            <div class="form-group">
-               <label for="uname"
-                  ><b
-                     >Email</b
-                  ></label
+            <div class="col-sm-8">
+               <form
+                  action="/<% if (editing) { %>editUser<% } else { %>addUser<% } %> "
+                  method="POST"
+                  name="details"
+                  enctype="multipart/form-data"
                >
-               <input class="form-control"
-                  class="form-control"
-                  type="email"
-                  placeholder="Enter Email"
-                  name="email"
-                  value="<% if (editing) { %><%= user.email %><% } %>"
-                  required
-               />
-              
-            </div>
+                  <div class="form-group">
+                     <label for="uname"><b>Email</b></label>
+                     <input
+                        class="form-control"
+                        class="form-control"
+                        type="email"
+                        placeholder="Enter Email"
+                        name="email"
+                        value="<% if (editing) { %><%= user.email %><% } %>"
+                        required
+                     />
+                  </div>
 
-            <div class="form-group">
-               <label for="frstname"
-                  ><b
-                     >Name</b
-                  ></label
-               >
-               <input class="form-control"
-                  type="text"
-                  class="frstname"
-                  placeholder="Name"
-                  name="name"
-                  id="fname"
-                  value="<% if (editing) { %><%= user.name %><% } %>"
-                  required
-               />
-               
-            </div>
+                  <div class="form-group">
+                     <label for="frstname"><b>Name</b></label>
+                     <input
+                        class="form-control"
+                        type="text"
+                        class="frstname"
+                        placeholder="Name"
+                        name="name"
+                        id="fname"
+                        value="<% if (editing) { %><%= user.name %><% } %>"
+                        required
+                     />
+                  </div>
 
-            <div class="form-group">
-               <label for="frstname"
-                  ><b
-                     >Instagram Id</b
-                  ></label
-               >
-               <input class="form-control"
-                  type="text"
-                  class="frstname"
-                  placeholder="Instagram Id"
-                  name="instagram"
-                  id="fname"
-                  value="<% if (editing) { %><%= user.instagramId %><% } %>"
-                  
-               />
-               
-            </div>
-            <div class="form-group">
-               <label for="frstname"
-                  ><b
-                     >LinkedIn</b
-                  ></label
-               >
-               <input class="form-control"
-                  type="text"
-                  class="frstname"
-                  placeholder="LinkedIn"
-                  name="linkedIn"
-                  id="fname"
-                  value="<% if (editing) { %><%= user.linkedIn %><% } %>"
-                  
-               />
-               
-            </div>
-            <div class="form-group">
-               <label for="frstname"
-                  ><b
-                     >Facebook Profile</b
-                  ></label
-               >
-               <input class="form-control"
-                  type="text"
-                  class="frstname"
-                  placeholder="Facebook Profile"
-                  name="fb"
-                  id="fname"
-                  value="<% if (editing) { %><%= user.facebook %><% } %>"
-                  
-               />
-               
-            </div>
+                  <div class="form-group">
+                     <label for="frstname"><b>Instagram Id</b></label>
+                     <input
+                        class="form-control"
+                        type="text"
+                        class="frstname"
+                        placeholder="Instagram Id"
+                        name="instagram"
+                        id="fname"
+                        value="<% if (editing) { %><%= user.instagramId %><% } %>"
+                     />
+                  </div>
+                  <div class="form-group">
+                     <label for="frstname"><b>LinkedIn</b></label>
+                     <input
+                        class="form-control"
+                        type="text"
+                        class="frstname"
+                        placeholder="LinkedIn"
+                        name="linkedIn"
+                        id="fname"
+                        value="<% if (editing) { %><%= user.linkedIn %><% } %>"
+                     />
+                  </div>
+                  <div class="form-group">
+                     <label for="frstname"><b>Facebook Profile</b></label>
+                     <input
+                        class="form-control"
+                        type="text"
+                        class="frstname"
+                        placeholder="Facebook Profile"
+                        name="fb"
+                        id="fname"
+                        value="<% if (editing) { %><%= user.facebook %><% } %>"
+                     />
+                  </div>
 
-            <div class="form-group">
-               <label for="phone"
-                  ><b
-                     >Phone Number</b
-                  ></label
-               >
-               <input class="form-control"
-                  type="number"
-                  class="Age"
-                  name="phone"
-                  id="age"
-                  value="<% if (editing) { %><%= user.phonenumber %><% } %>"
-                  placeholder="phone Number"
-                  required
-               />
-            </div>
+                  <div class="form-group">
+                     <label for="frstname"><b>Profile Picture</b></label>
+                     <input
+                        class="form-control"
+                        type="file"
+                        class="frstname"
+                        name="image"
+                        id="image"
+                     />
+                  </div>
 
-            <div class="form-group">
-               <label for="addrs"
-                  ><b
-                     >Address</b
-                  ></label
-               >
-               <input class="form-control"
-                  type="text"
-                  class="addrs"
-                  name="addrs"
-                  id="adress"
-                  value="<% if (editing) { %><%= user.address1 %><% } %>"
-                  placeholder="Address"
-               />
+                  <div class="form-group">
+                     <label for="phone"><b>Phone Number</b></label>
+                     <input
+                        class="form-control"
+                        type="number"
+                        class="Age"
+                        name="phone"
+                        id="age"
+                        value="<% if (editing) { %><%= user.phonenumber %><% } %>"
+                        placeholder="phone Number"
+                        required
+                     />
+                  </div>
+
+                  <div class="form-group">
+                     <label for="addrs"><b>Address</b></label>
+                     <input
+                        class="form-control"
+                        type="text"
+                        class="addrs"
+                        name="addrs"
+                        id="adress"
+                        value="<% if (editing) { %><%= user.address1 %><% } %>"
+                        placeholder="Address"
+                     />
+                  </div>
+                  <% if(editing) {%>
+                  <input
+                     class="form-control"
+                     type="hidden"
+                     value="<%= user._id %>"
+                     name="userId"
+                  />
+                  <% } %>
+                  <button type="submit" class="btn btn-success">
+                     Submit
+                  </button>
+               </form>
             </div>
-            <% if(editing) {%>
-            <input class="form-control" type="hidden" value="<%= user._id %>" name="userId" />
-            <% } %>
-            <button type="submit" class="btn btn-success">
-              Submit
-            </button>
-         </form>
-      </div>
-      <div class="col-sm-2"></div>
-      </div>
+            <div class="col-sm-2"></div>
+         </div>
       </div>
    </body>
 </html>

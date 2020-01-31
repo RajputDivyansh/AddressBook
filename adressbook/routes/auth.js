@@ -32,22 +32,48 @@ router.post("/addUser", authentication.isAuth, (req, res, next) => {
    const email = req.body.email;
    const name = req.body.name;
    const phone = req.body.phone;
+   const image = req.file;
    const adress = req.body.addrs;
    const insta = req.body.instagram;
    const linkedIn = req.body.linkedIn;
    const fb = req.body.fb;
    //    const adress2 = req.body.adress2;
-   const bookstore = new Bookstore({
-      name: name,
-      email: email,
-      phonenumber: phone,
-      instagramId: insta,
-      linkedIn: linkedIn,
-      facebook: fb,
-      address1: adress,
-      userId: req.user._id
-      //   address2: adress2
-   });
+
+   var bookstore;
+   if (!image) {
+      //const defaultPath = "./avatar.png";
+      console.log("if");
+      bookstore = new Bookstore({
+         name: name,
+         email: email,
+         phonenumber: phone,
+         //urlPath: defaultPath,
+         instagramId: insta,
+         linkedIn: linkedIn,
+         facebook: fb,
+         address1: adress,
+         userId: req.user._id
+
+         //   address2: adress2
+      });
+   } else {
+      var imagepath = image.path;
+      imagepath = imagepath.split("/");
+      imagepath = imagepath[1];
+      console.log(imagepath);
+      console.log("else");
+      bookstore = new Bookstore({
+         name: name,
+         email: email,
+         phonenumber: phone,
+         urlPath: imagepath,
+         instagramId: insta,
+         linkedIn: linkedIn,
+         facebook: fb,
+         address1: adress,
+         userId: req.user._id
+      });
+   }
    bookstore
       .save()
       .then(result => {
@@ -72,6 +98,7 @@ router.post("/editUser", authentication.isAuth, (req, res, next) => {
    const updatedname = req.body.name;
    const updatedphone = req.body.phone;
    const updatedadress = req.body.addrs;
+   const image = req.file;
    const userId = req.body.userId;
 
    Bookstore.findById(userId)
@@ -83,6 +110,9 @@ router.post("/editUser", authentication.isAuth, (req, res, next) => {
          user.email = updatedemail;
          user.phonenumber = updatedphone;
          user.address1 = updatedadress;
+         if (image) {
+            user.image = image.path;
+         }
          return user.save().then(result => {
             console.log("user updated");
             res.redirect("/getUser");

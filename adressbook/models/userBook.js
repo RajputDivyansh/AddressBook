@@ -21,10 +21,14 @@ const bookSchema = new Schema({
    },
    facebook: {
       type: String
-      // required: true
    },
    phonenumber: {
       type: String,
+      required: true
+   },
+   urlPath: {
+      type: String,
+      default: "avatar.png",
       required: true
    },
    address1: {

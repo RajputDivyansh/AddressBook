@@ -20,7 +20,12 @@ exports.postLogin = (req, res, next) => {
    User.findOne({ email: email })
       .then(user => {
          if (!user) {
-            return res.redirect("/login");
+            //res.set(402);
+            // return res.redirect("/login", 401);
+            return res.status(401).render("login.ejs", {
+               path: "/login",
+               isAuthenticated: false
+            });
          }
          bcrypt
             .compare(password, user.password)

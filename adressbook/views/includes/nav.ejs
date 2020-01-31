@@ -1,21 +1,25 @@
-<div class="backdrop"></div>
-<header class="main-header">
-   <button id="side-menu-toggle">Menu</button>
-   <nav class="main-header__nav">
-      <ul class="main-header__item-list">
-         <li class="main-header__item">
-            <a href="/addUser">AddUser</a>
-         </li>
-         <li style="color: white; position: absolute; right:7%;">
-            <%= userId %>
-         </li>
-         <li class="main-header__item">
-            <form action="/logout" method="post">
-               <button type="submit" style="color: white; position: absolute; right:1%;">Logout</button>
-            </form>
-         </li>
-      </ul>
-   </nav>
-
-   
-</header>
+<div class="backdrop">
+   <header class="main-header">
+      <button id="side-menu-toggle">Menu</button>
+      <nav class="main-header__nav">
+         <ul class="main-header__item-list">
+            <li class="main-header__item">
+               <a href="/addUser">AddUser</a>
+            </li>
+            <li style="color: white; position: absolute; right:7%;">
+               <%= userId %>
+            </li>
+            <li class="main-header__item">
+               <form action="/logout" method="post">
+                  <button
+                     type="submit"
+                     style="color: white; position: absolute; right:1%;"
+                  >
+                     Logout
+                  </button>
+               </form>
+            </li>
+         </ul>
+      </nav>
+   </header>
+</div>

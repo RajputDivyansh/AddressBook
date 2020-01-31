@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDbStore = require("connect-mongodb-session")(session);
+const multer = require("multer");
 
 const User = require("./models/user");
 const MONGODB_URL =
@@ -16,14 +17,40 @@ const store = new MongoDbStore({
    collection: "sessions"
 });
 
+const fileStorage = multer.diskStorage({
+   destination: (req, file, cb) => {
+      cb(null, "image");
+   },
+   filename: (req, file, cb) => {
+      cb(null, new Date().toISOString() + "-" + file.originalname);
+   }
+});
+
+const fileFilter = (req, file, cb) => {
+   if (
+      file.mimetype === "image/png" ||
+      file.mimetype === "image/jpg" ||
+      file.mimetype === "image/jpeg"
+   ) {
+      cb(null, true);
+   } else {
+      cb(null, false);
+   }
+};
+
 //Express Middleware
 app.use(express.json()); //A new body object containing the parsed data is populated on the request object after the middleware (i.e. req.body).
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+   multer({ storage: fileStorage, fileFilter: fileFilter }).single("image")
+);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("veiw engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "image")));
 
 app.use(
    session({
