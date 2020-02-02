@@ -1,5 +1,17 @@
 const addUser = require("../models/userBook");
 
+const fs = require("fs");
+
+const deleteFile = filePath => {
+   let path = "image/" + filePath;
+   console.log(path);
+   fs.unlink(path, err => {
+      if (err) {
+         console.log(err);
+      }
+   });
+};
+
 exports.getUser = (req, res, next) => {
    //    console.log(req.user._id);
    const mySort = { name: 1 };
@@ -29,7 +41,13 @@ exports.deleteUser = (req, res, next) => {
    const userbookId = req.body.userbookId;
    console.log(userbookId);
    addUser
-      .deleteOne({ _id: userbookId, userId: req.user._id })
+      .findById(userbookId)
+      .then(user => {
+         if (user.urlPath != "avatar.png") {
+            deleteFile(user.urlPath);
+         }
+         return addUser.deleteOne({ _id: userbookId, userId: req.user._id });
+      })
       .then(() => {
          console.log("deleted");
          res.redirect("/getUser");
