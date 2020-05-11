@@ -58,7 +58,13 @@ router.post("/addUser", authentication.isAuth, (req, res, next) => {
       });
    } else {
       var imagepath = image.path;
+      //var imagepath1 = image.path;
+      //console.log(imagepath1);
       imagepath = imagepath.split("/");
+      
+      //FOR WINDOWS USE THIS
+      //imagepath = imagepath.split("\\");
+      
       imagepath = imagepath[1];
       console.log(imagepath);
       console.log("else");
